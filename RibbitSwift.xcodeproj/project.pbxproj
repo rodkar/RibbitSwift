@@ -23,6 +23,7 @@
 		D54D20A519D55B8800E85FEA /* EditFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D20A419D55B8800E85FEA /* EditFriendsViewController.swift */; };
 		D54D20AD19D5684800E85FEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D20AC19D5684800E85FEA /* LoginViewController.swift */; };
 		D54D20AF19D5687C00E85FEA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D20AE19D5687C00E85FEA /* SignupViewController.swift */; };
+		D57C29A519E11C3500D8A6E3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */; };
 		D582B96D19D3C4B500CAE186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582B96C19D3C4B500CAE186 /* AppDelegate.swift */; };
 		D582B97219D3C4B500CAE186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D582B97019D3C4B500CAE186 /* Main.storyboard */; };
 		D582B97419D3C4B500CAE186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D582B97319D3C4B500CAE186 /* Images.xcassets */; };
@@ -65,6 +66,7 @@
 		D54D20A619D5630700E85FEA /* RibbitSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RibbitSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		D54D20AC19D5684800E85FEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D54D20AE19D5687C00E85FEA /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ../FriendsViewController.swift; sourceTree = "<group>"; };
 		D582B96719D3C4B500CAE186 /* RibbitSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RibbitSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D582B96B19D3C4B500CAE186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D582B96C19D3C4B500CAE186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,9 +121,9 @@
 			children = (
 				D582B99919D408F500CAE186 /* Frameworks */,
 				D582B99819D3FF6B00CAE186 /* Images */,
+				D582B96819D3C4B500CAE186 /* Products */,
 				D582B96919D3C4B500CAE186 /* RibbitSwift */,
 				D582B97F19D3C4B500CAE186 /* RibbitSwiftTests */,
-				D582B96819D3C4B500CAE186 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,15 +140,16 @@
 			isa = PBXGroup;
 			children = (
 				D582B96C19D3C4B500CAE186 /* AppDelegate.swift */,
-				D582B97019D3C4B500CAE186 /* Main.storyboard */,
-				D54D20AC19D5684800E85FEA /* LoginViewController.swift */,
-				D54D20AE19D5687C00E85FEA /* SignupViewController.swift */,
-				D582B97319D3C4B500CAE186 /* Images.xcassets */,
-				D582B97519D3C4B500CAE186 /* LaunchScreen.xib */,
-				D582B96A19D3C4B500CAE186 /* Supporting Files */,
-				D582B99A19D4090D00CAE186 /* InboxViewController.swift */,
 				D54D20A419D55B8800E85FEA /* EditFriendsViewController.swift */,
+				D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */,
+				D582B97319D3C4B500CAE186 /* Images.xcassets */,
+				D582B99A19D4090D00CAE186 /* InboxViewController.swift */,
+				D582B97519D3C4B500CAE186 /* LaunchScreen.xib */,
+				D54D20AC19D5684800E85FEA /* LoginViewController.swift */,
+				D582B97019D3C4B500CAE186 /* Main.storyboard */,
 				D54D20A619D5630700E85FEA /* RibbitSwift-Bridging-Header.h */,
+				D54D20AE19D5687C00E85FEA /* SignupViewController.swift */,
+				D582B96A19D3C4B500CAE186 /* Supporting Files */,
 			);
 			path = RibbitSwift;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				TargetAttributes = {
 					D582B96619D3C4B500CAE186 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 4MAWYF88H3;
 					};
 					D582B97B19D3C4B500CAE186 = {
 						CreatedOnToolsVersion = 6.0;
@@ -320,6 +324,7 @@
 				D54D20A519D55B8800E85FEA /* EditFriendsViewController.swift in Sources */,
 				D54D20AF19D5687C00E85FEA /* SignupViewController.swift in Sources */,
 				D582B96D19D3C4B500CAE186 /* AppDelegate.swift in Sources */,
+				D57C29A519E11C3500D8A6E3 /* FriendsViewController.swift in Sources */,
 				D582B99B19D4090D00CAE186 /* InboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,13 +449,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RibbitSwift",
 				);
 				INFOPLIST_FILE = RibbitSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RibbitSwift/RibbitSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -461,13 +470,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RibbitSwift",
 				);
 				INFOPLIST_FILE = RibbitSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RibbitSwift/RibbitSwift-Bridging-Header.h";
 			};
 			name = Release;
