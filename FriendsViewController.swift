@@ -10,18 +10,27 @@ import UIKit
 
 class FriendsViewController: UITableViewController {
     
-    var allFriends : [PFUser]?
+    var friends : [PFUser]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         let friendsRelation = PFUser.currentUser().relationForKey("friendsRelation")
         
         let query = friendsRelation.query()
         query.orderByAscending("username")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
-                self.allFriends = objects as? [PFUser]
+                self.friends = objects as? [PFUser]
+                
+                for friend in self.friends! {
+                    if friend.username == PFUser.currentUser().username {
+                        println(friend)
+                    }
+                }
                 self.tableView.reloadData()
             } else {
                 println("Error: \(error.userInfo)")
@@ -29,15 +38,21 @@ class FriendsViewController: UITableViewController {
         }
     }
     
-    
     // MARK: - Table view data source
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEditFriends" {
+            var viewController = segue.destinationViewController as EditFriendsViewController
+            viewController.friends = self.friends
+        }
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.allFriends?.count {
+        if let count = self.friends?.count {
             return (count)
         } else {
             //allUsers is nil, so just return 0
@@ -47,13 +62,18 @@ class FriendsViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
         let row = indexPath.row
-        let friend = self.allFriends![row]
-        cell.textLabel?.text = friend.username
+        let friend = self.friends![row]
         
-        return cell
+        if friend.username != PFUser.currentUser().username {
+            cell.textLabel?.text = friend.username
+            return cell
+        } else {
+            cell.textLabel?.text = "Myself"
+            return cell
+        }
     }
 }

@@ -12,7 +12,9 @@ import UIKit
 class EditFriendsViewController: UITableViewController{
     
     var allUsers : [PFUser]?
+    var friends : [PFUser]? // receiving PFUser objects passed from FriendsViewController
     let currentUser = PFUser.currentUser()?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,21 +56,49 @@ class EditFriendsViewController: UITableViewController{
         let user = self.allUsers![row]
         cell.textLabel?.text = user.username
         
+        if isFriend(user)  { // this user is a friend
+            // add checkmark
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            
+        } else {
+            // clear checkmark
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-        cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        
-        let friendsRelation = currentUser?.relationForKey("friendsRelation")
         let row = indexPath.row
-        let selectedUser = self.allUsers![row] // user selected
-        friendsRelation?.addObject(selectedUser)
+        let selectedUser = self.allUsers![row]
+        let friendsRelation = currentUser?.relationForKey("friendsRelation")
+        
+        if isFriend(selectedUser){
+            // remove checkmark
+            cell?.accessoryType = UITableViewCellAccessoryType.None
+            
+            // remove from the array of friends
+            for friend in self.friends! {
+                if friend.objectId == selectedUser.objectId {
+                    if let foundIndex = find(self.friends!, friend) {
+                        //remove the item at the found index
+                        self.friends!.removeAtIndex(foundIndex)
+                    }
+                }
+            }
+            
+            // remove from the backend
+            friendsRelation?.removeObject(selectedUser)
+            
+        } else {
+            friendsRelation?.addObject(selectedUser)
+            self.friends!.append(selectedUser)
+            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
         
         self.currentUser?.saveInBackgroundWithBlock({ (bool: Bool, error: NSError!) -> Void in
             if error != nil {
@@ -78,4 +108,17 @@ class EditFriendsViewController: UITableViewController{
             }
         })
     }
+    
+    // MARK: - helper methods
+    
+    func isFriend(user : PFUser) -> Bool {
+        for friend in self.friends! {
+            if friend.objectId == user.objectId {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="x1S-g0-SLu">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -197,7 +196,7 @@
                     <navigationItem key="navigationItem" title="Friends" id="E8B-ns-48c">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Rye-rM-ufJ">
                             <connections>
-                                <segue destination="0Jc-IA-mjb" kind="push" id="yNa-NM-ftD"/>
+                                <segue destination="0Jc-IA-mjb" kind="push" identifier="showEditFriends" id="yNa-NM-ftD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
