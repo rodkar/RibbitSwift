@@ -18,6 +18,8 @@ class FriendsViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
         let friendsRelation = PFUser.currentUser().relationForKey("friendsRelation")
         
         let query = friendsRelation.query()
@@ -28,7 +30,10 @@ class FriendsViewController: UITableViewController {
                 
                 for friend in self.friends! {
                     if friend.username == PFUser.currentUser().username {
-                        println(friend)
+                        if let foundIndex = find(self.friends!, friend) {
+                            //remove the item at the found index
+                            self.friends!.removeAtIndex(foundIndex)
+                        }
                     }
                 }
                 self.tableView.reloadData()
@@ -60,7 +65,6 @@ class FriendsViewController: UITableViewController {
         }
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
@@ -68,12 +72,7 @@ class FriendsViewController: UITableViewController {
         let row = indexPath.row
         let friend = self.friends![row]
         
-        if friend.username != PFUser.currentUser().username {
-            cell.textLabel?.text = friend.username
-            return cell
-        } else {
-            cell.textLabel?.text = "Myself"
-            return cell
-        }
+        cell.textLabel?.text = friend.username
+        return cell
     }
 }

@@ -29,6 +29,15 @@ class EditFriendsViewController: UITableViewController{
                 
                 println("Successfully retrieved \(self.allUsers!.count) users.")
                 
+                for user in self.allUsers! {
+                    if user.username == PFUser.currentUser().username {
+                        if let foundIndex = find(self.allUsers!, user) {
+                            //remove the item at the found index
+                            self.allUsers!.removeAtIndex(foundIndex)
+                        }
+                    }
+                }
+                
                 self.tableView.reloadData()
                 
             } else {

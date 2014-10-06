@@ -23,6 +23,7 @@
 		D54D20A519D55B8800E85FEA /* EditFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D20A419D55B8800E85FEA /* EditFriendsViewController.swift */; };
 		D54D20AD19D5684800E85FEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D20AC19D5684800E85FEA /* LoginViewController.swift */; };
 		D54D20AF19D5687C00E85FEA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D20AE19D5687C00E85FEA /* SignupViewController.swift */; };
+		D57301F619E272E000247B90 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57301F519E272E000247B90 /* CameraViewController.swift */; };
 		D57C29A519E11C3500D8A6E3 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */; };
 		D582B96D19D3C4B500CAE186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582B96C19D3C4B500CAE186 /* AppDelegate.swift */; };
 		D582B97219D3C4B500CAE186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D582B97019D3C4B500CAE186 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		D54D20A619D5630700E85FEA /* RibbitSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RibbitSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		D54D20AC19D5684800E85FEA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D54D20AE19D5687C00E85FEA /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		D57301F519E272E000247B90 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsViewController.swift; path = ../FriendsViewController.swift; sourceTree = "<group>"; };
 		D582B96719D3C4B500CAE186 /* RibbitSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RibbitSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D582B96B19D3C4B500CAE186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				D582B96C19D3C4B500CAE186 /* AppDelegate.swift */,
+				D57301F519E272E000247B90 /* CameraViewController.swift */,
 				D54D20A419D55B8800E85FEA /* EditFriendsViewController.swift */,
 				D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */,
 				D582B97319D3C4B500CAE186 /* Images.xcassets */,
@@ -324,6 +327,7 @@
 				D54D20A519D55B8800E85FEA /* EditFriendsViewController.swift in Sources */,
 				D54D20AF19D5687C00E85FEA /* SignupViewController.swift in Sources */,
 				D582B96D19D3C4B500CAE186 /* AppDelegate.swift in Sources */,
+				D57301F619E272E000247B90 /* CameraViewController.swift in Sources */,
 				D57C29A519E11C3500D8A6E3 /* FriendsViewController.swift in Sources */,
 				D582B99B19D4090D00CAE186 /* InboxViewController.swift in Sources */,
 			);
