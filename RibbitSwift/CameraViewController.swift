@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class CameraViewController: UITableViewController {
+
+class CameraViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     var imagePicker = UIImagePickerController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-
+        
         imagePicker.allowsEditing = false
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -30,9 +34,7 @@ class CameraViewController: UITableViewController {
         self.presentViewController(imagePicker, animated: false, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     
     // MARK: - Table view data source
     
@@ -48,9 +50,21 @@ class CameraViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         return cell
     }
+    
     // MARK: - Image Picker Controller Delegate
-    func imagePickerControllerDidCancel(picker: UIImagePickerController!){
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+
         self.dismissViewControllerAnimated(false, completion: nil)
         self.tabBarController?.selectedIndex = 0
+
     }
+
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        let mediaType = info
+//            .indexForKey(UIImagePickerControllerMediaType)
+        println("media type is: \(mediaType.indexForKey(UIImagePickerControllerMediaType))")
+        
+    }
+
 }
