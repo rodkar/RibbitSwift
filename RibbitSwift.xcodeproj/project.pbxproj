@@ -37,6 +37,12 @@
 		D582B99619D3FF6200CAE186 /* inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D582B99019D3FF6200CAE186 /* inbox.png */; };
 		D582B99719D3FF6200CAE186 /* inbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D582B99119D3FF6200CAE186 /* inbox@2x.png */; };
 		D582B99B19D4090D00CAE186 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582B99A19D4090D00CAE186 /* InboxViewController.swift */; };
+		D5E3627C19E69E9900F6F94F /* icon_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3627819E69E9900F6F94F /* icon_image.png */; };
+		D5E3627D19E69E9900F6F94F /* icon_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3627919E69E9900F6F94F /* icon_image@2x.png */; };
+		D5E3627E19E69E9900F6F94F /* icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3627A19E69E9900F6F94F /* icon_video.png */; };
+		D5E3627F19E69E9900F6F94F /* icon_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E3627B19E69E9900F6F94F /* icon_video@2x.png */; };
+		D5E3628119E6A37500F6F94F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3628019E6A37500F6F94F /* ImageViewController.swift */; };
+		D5E3628319E6B7A800F6F94F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E3628219E6B7A800F6F94F /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,12 @@
 		D582B99019D3FF6200CAE186 /* inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inbox.png; sourceTree = "<group>"; };
 		D582B99119D3FF6200CAE186 /* inbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inbox@2x.png"; sourceTree = "<group>"; };
 		D582B99A19D4090D00CAE186 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		D5E3627819E69E9900F6F94F /* icon_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_image.png; sourceTree = "<group>"; };
+		D5E3627919E69E9900F6F94F /* icon_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_image@2x.png"; sourceTree = "<group>"; };
+		D5E3627A19E69E9900F6F94F /* icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_video.png; sourceTree = "<group>"; };
+		D5E3627B19E69E9900F6F94F /* icon_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_video@2x.png"; sourceTree = "<group>"; };
+		D5E3628019E6A37500F6F94F /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		D5E3628219E6B7A800F6F94F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E3628319E6B7A800F6F94F /* MediaPlayer.framework in Frameworks */,
 				D54D209A19D5516F00E85FEA /* AudioToolbox.framework in Frameworks */,
 				D54D209B19D5516F00E85FEA /* CFNetwork.framework in Frameworks */,
 				D54D209C19D5516F00E85FEA /* CoreGraphics.framework in Frameworks */,
@@ -147,6 +160,7 @@
 				D57C29A419E11C3500D8A6E3 /* FriendsViewController.swift */,
 				D582B97319D3C4B500CAE186 /* Images.xcassets */,
 				D582B99A19D4090D00CAE186 /* InboxViewController.swift */,
+				D5E3628019E6A37500F6F94F /* ImageViewController.swift */,
 				D582B97519D3C4B500CAE186 /* LaunchScreen.xib */,
 				D54D20AC19D5684800E85FEA /* LoginViewController.swift */,
 				D582B97019D3C4B500CAE186 /* Main.storyboard */,
@@ -185,6 +199,10 @@
 		D582B99819D3FF6B00CAE186 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D5E3627819E69E9900F6F94F /* icon_image.png */,
+				D5E3627919E69E9900F6F94F /* icon_image@2x.png */,
+				D5E3627A19E69E9900F6F94F /* icon_video.png */,
+				D5E3627B19E69E9900F6F94F /* icon_video@2x.png */,
 				D582B98C19D3FF6200CAE186 /* camera.png */,
 				D582B98D19D3FF6200CAE186 /* camera@2x.png */,
 				D582B98E19D3FF6200CAE186 /* friends.png */,
@@ -198,6 +216,7 @@
 		D582B99919D408F500CAE186 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5E3628219E6B7A800F6F94F /* MediaPlayer.framework */,
 				D54D209019D5516F00E85FEA /* AudioToolbox.framework */,
 				D54D209119D5516F00E85FEA /* CFNetwork.framework */,
 				D54D209219D5516F00E85FEA /* CoreGraphics.framework */,
@@ -297,15 +316,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E3627E19E69E9900F6F94F /* icon_video.png in Resources */,
 				D582B97219D3C4B500CAE186 /* Main.storyboard in Resources */,
 				D582B99419D3FF6200CAE186 /* friends.png in Resources */,
+				D5E3627C19E69E9900F6F94F /* icon_image.png in Resources */,
 				D582B99519D3FF6200CAE186 /* friends@2x.png in Resources */,
 				D582B99319D3FF6200CAE186 /* camera@2x.png in Resources */,
 				D582B99619D3FF6200CAE186 /* inbox.png in Resources */,
 				D582B97719D3C4B500CAE186 /* LaunchScreen.xib in Resources */,
+				D5E3627D19E69E9900F6F94F /* icon_image@2x.png in Resources */,
 				D582B99219D3FF6200CAE186 /* camera.png in Resources */,
 				D582B97419D3C4B500CAE186 /* Images.xcassets in Resources */,
 				D582B99719D3FF6200CAE186 /* inbox@2x.png in Resources */,
+				D5E3627F19E69E9900F6F94F /* icon_video@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +352,7 @@
 				D582B96D19D3C4B500CAE186 /* AppDelegate.swift in Sources */,
 				D57301F619E272E000247B90 /* CameraViewController.swift in Sources */,
 				D57C29A519E11C3500D8A6E3 /* FriendsViewController.swift in Sources */,
+				D5E3628119E6A37500F6F94F /* ImageViewController.swift in Sources */,
 				D582B99B19D4090D00CAE186 /* InboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -184,7 +184,6 @@ class CameraViewController: UITableViewController, UIImagePickerControllerDelega
             self.presentViewController(self.imagePicker, animated: false, completion: nil)
         } else {
             self.uploadMessage()
-            self.reset()
             self.tabBarController?.selectedIndex = 0
         }
     }
@@ -198,7 +197,6 @@ class CameraViewController: UITableViewController, UIImagePickerControllerDelega
     }
     
     func uploadMessage() {
-        // check if image or video
         
         var fileData : NSData?
         var fileName : String?
@@ -216,8 +214,12 @@ class CameraViewController: UITableViewController, UIImagePickerControllerDelega
         }
         
         let file = PFFile(name: fileName, data: fileData)
+        
+        var message = PFObject(className: "Messages")
+        
         file.saveInBackgroundWithBlock { (succeeded:Bool, NSError:NSError!) -> Void in
-            if (NSError != nil) {
+            
+            if NSError != nil {
                 let alertView = UIAlertController(title: "An error occurred!", message: "Please try sending your message again.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
@@ -233,42 +235,41 @@ class CameraViewController: UITableViewController, UIImagePickerControllerDelega
                     }
                 }))
                 self.presentViewController(alertView, animated: true, completion:nil)
+                
             } else {
-                var message = PFObject(className: "Messages")
                 message["file"] = file
                 message["fileType"] = fileType
                 message["recipientIds"] = self.recipients
                 message["senderId"] = PFUser.currentUser().objectId
                 message["senderName"] = PFUser.currentUser().username
-                message.saveInBackgroundWithBlock({ (succeeded:<#Bool#>, <#NSError!#>) -> Void in
-                    if (NSError != nil) {
-                        
-                        let alertView = UIAlertController(title: "An error occurred!", message: "Please try sending your message again.", preferredStyle: UIAlertControllerStyle.Alert)
-                        
-                        alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                            switch action.style{
-                            case .Default:
-                                println("default")
-                                
-                            case .Cancel:
-                                println("cancel")
-                                
-                            case .Destructive:
-                                println("destructive")
-                            }
-                        }))
-                        self.presentViewController(alertView, animated: true, completion:nil)
-                    } else {
-                        
-                    }
-
-                })
+                message.save()
+                self.reset()
             }
         }
         
-        // if image, shrink it
-        // upload the file itself
-        // upload the message details
+//        message.saveInBackgroundWithBlock { (succeeded : Bool, error : NSError!) -> Void in
+//            if error != nil {
+//                let alertView = UIAlertController(title: "An error occurred!", message: "Please try sending your message again.", preferredStyle: UIAlertControllerStyle.Alert)
+//                
+//                alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+//                    switch action.style{
+//                    case .Default:
+//                        println("default")
+//                        
+//                    case .Cancel:
+//                        println("cancel")
+//                        
+//                    case .Destructive:
+//                        println("destructive")
+//                    }
+//                }))
+//                self.presentViewController(alertView, animated: true, completion:nil)
+//                
+//            } else {
+//                // everything was successful
+//                self.reset()
+//            }
+//        }
     }
     
     func resizeImage(image : UIImage, width : CGFloat, height : CGFloat ) -> UIImage {

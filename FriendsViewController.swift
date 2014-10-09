@@ -66,11 +66,9 @@ class FriendsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
-        let row = indexPath.row
-        let friend = self.friends![row]
+        let friend = self.friends![indexPath.row]
         
         cell.textLabel?.text = friend.username
         return cell
