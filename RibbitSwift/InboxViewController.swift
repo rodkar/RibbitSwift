@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 import MediaPlayer
+import AVFoundation
+import AVKit
 
 class InboxViewController: UITableViewController {
     
     var messages : [PFObject]?
     var selectedMessage : PFObject?
-    var moviePlayer : MPMoviePlayerController?
+    var moviePlayer : AVPlayerViewController?
     
     override func viewDidLoad() {
         let currentUser = PFUser.currentUser()
@@ -94,14 +96,55 @@ class InboxViewController: UITableViewController {
         } else {
             let videoFile = self.selectedMessage!["file"] as PFFile
             let fileUrl = NSURL(string:videoFile.url)
-            self.moviePlayer?.contentURL = fileUrl
-            self.moviePlayer?.prepareToPlay()
+//            self.moviePlayer = AVPlayerViewController()
+//            self.moviePlayer?.player = AVPlayer.playerWithURL(fileUrl) as AVPlayer
+//            self.view.addSubview(self.moviePlayer!.view)
+
+//            let asset = AVAsset.assetWithURL(fileUrl) as AVAsset
+//            let playerItem = AVPlayerItem(asset: asset)
+//            let player = AVPlayer.playerWithPlayerItem(playerItem) as AVPlayer
+            self.moviePlayer?.player = AVPlayer.playerWithURL(fileUrl) as AVPlayer
+            self.moviePlayer?.player.play()
+            
+//            var player:AVPlayer!
+//            var playerItem:AVPlayerItem!;
+//            var avPlayerLayer:AVPlayerLayer = AVPlayerLayer(player: player)
+//            avPlayerLayer.frame = CGRectMake(50,50,100,100)
+//            self.view.layer.addSublayer(avPlayerLayer)
+////            var steamingURL:NSURL = NSURL(string:fil)
+//            player = AVPlayer(URL: fileUrl)
+//            println(fileUrl)
+//
+//            player.play()
+            
+            //            self.moviePlayer?.contentURL = fileUrl
+            //            self.moviePlayer?.prepareToPlay()
             
             // add it to the view controller so we can see it
-            let moviePlayerView : UIView = self.moviePlayer!.view!
-            
-            self.view.addSubview(moviePlayerView)
-            self.moviePlayer?.setFullscreen(true, animated: true)
+            //            var moviePlayerView : UIView = self.moviePlayer!.view!
+            //
+            //            self.view.addSubview(moviePlayerView)
+            //            self.moviePlayer?.setFullscreen(true, animated: true)
+        }
+        
+        // delete ie
+        
+        var recipientIds = [self.selectedMessage!["recipientIds"]] as [PFObject]
+        println(recipientIds)
+        
+        if recipientIds.count == 1 {
+            self.selectedMessage?.deleteInBackground()
+        } else {
+            for recipient in recipientIds {
+                if recipient.objectId == PFUser.currentUser().objectId {
+                    if let foundIndex = find(recipientIds, recipient) {
+                        //remove the item at the found index
+                        recipientIds.removeAtIndex(foundIndex)
+                        self.selectedMessage?.setObject(recipientIds, forKey: "recipientIds")
+                        self.selectedMessage?.saveInBackground()
+                    }
+                }
+            }
         }
     }
     

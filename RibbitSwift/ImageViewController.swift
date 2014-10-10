@@ -26,4 +26,19 @@ class ImageViewController: UIViewController {
         self.navigationItem.title = title
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.respondsToSelector("timeout"){
+            let timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector:"timeout" , userInfo: nil, repeats: false)
+        } else {
+            println("Error: selector missing!")
+        }
+    }
+    
+    // MARK: - Helper methods
+    
+    func timeout(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
