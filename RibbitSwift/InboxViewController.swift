@@ -32,21 +32,23 @@ class InboxViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var query = PFQuery(className:"Messages")
-        query.whereKey("recipientIds", equalTo:PFUser.currentUser().objectId)
-        query.orderByDescending("createdAt")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                // The find succeeded.
-                NSLog("Successfully retrieved \(objects.count) messages.")
-                
-                self.messages = objects as? [PFObject]
-                self.tableView.reloadData()
-                
-            } else {
-                // Log details of the failure
-                NSLog("Error: %@ %@", error, error.userInfo!)
+        if PFUser.currentUser() != nil {
+            var query = PFQuery(className:"Messages")
+            query.whereKey("recipientIds", equalTo:PFUser.currentUser().objectId)
+            query.orderByDescending("createdAt")
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    NSLog("Successfully retrieved \(objects.count) messages.")
+                    
+                    self.messages = objects as? [PFObject]
+                    self.tableView.reloadData()
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog("Error: %@ %@", error, error.userInfo!)
+                }
             }
         }
     }
@@ -96,26 +98,26 @@ class InboxViewController: UITableViewController {
         } else {
             let videoFile = self.selectedMessage!["file"] as PFFile
             let fileUrl = NSURL(string:videoFile.url)
-//            self.moviePlayer = AVPlayerViewController()
-//            self.moviePlayer?.player = AVPlayer.playerWithURL(fileUrl) as AVPlayer
-//            self.view.addSubview(self.moviePlayer!.view)
-
-//            let asset = AVAsset.assetWithURL(fileUrl) as AVAsset
-//            let playerItem = AVPlayerItem(asset: asset)
-//            let player = AVPlayer.playerWithPlayerItem(playerItem) as AVPlayer
+            //            self.moviePlayer = AVPlayerViewController()
+            //            self.moviePlayer?.player = AVPlayer.playerWithURL(fileUrl) as AVPlayer
+            //            self.view.addSubview(self.moviePlayer!.view)
+            
+            //            let asset = AVAsset.assetWithURL(fileUrl) as AVAsset
+            //            let playerItem = AVPlayerItem(asset: asset)
+            //            let player = AVPlayer.playerWithPlayerItem(playerItem) as AVPlayer
             self.moviePlayer?.player = AVPlayer.playerWithURL(fileUrl) as AVPlayer
             self.moviePlayer?.player.play()
             
-//            var player:AVPlayer!
-//            var playerItem:AVPlayerItem!;
-//            var avPlayerLayer:AVPlayerLayer = AVPlayerLayer(player: player)
-//            avPlayerLayer.frame = CGRectMake(50,50,100,100)
-//            self.view.layer.addSublayer(avPlayerLayer)
-////            var steamingURL:NSURL = NSURL(string:fil)
-//            player = AVPlayer(URL: fileUrl)
-//            println(fileUrl)
-//
-//            player.play()
+            //            var player:AVPlayer!
+            //            var playerItem:AVPlayerItem!;
+            //            var avPlayerLayer:AVPlayerLayer = AVPlayerLayer(player: player)
+            //            avPlayerLayer.frame = CGRectMake(50,50,100,100)
+            //            self.view.layer.addSublayer(avPlayerLayer)
+            ////            var steamingURL:NSURL = NSURL(string:fil)
+            //            player = AVPlayer(URL: fileUrl)
+            //            println(fileUrl)
+            //
+            //            player.play()
             
             //            self.moviePlayer?.contentURL = fileUrl
             //            self.moviePlayer?.prepareToPlay()
