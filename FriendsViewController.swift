@@ -70,7 +70,7 @@ class FriendsViewController: UITableViewController {
         
         let friend = self.friends![indexPath.row]
         
-        cell.textLabel?.text = friend.username
+        cell.textLabel.text = friend.username
         return cell
     }
 }

@@ -63,7 +63,7 @@ class EditFriendsViewController: UITableViewController{
         let row = indexPath.row
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         let user = self.allUsers![row]
-        cell.textLabel?.text = user.username
+        cell.textLabel.text = user.username
         
         if isFriend(user)  { // this user is a friend
             // add checkmark
